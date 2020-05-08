@@ -13,8 +13,8 @@ public class UserServiceImpl  implements UserService{
     Set<User> users = new HashSet<>();
 
     @Override
-    public boolean login(LoginDto dto) {
-        User user = new User(dto.getLogin(), dto.getPassvord());
+    public boolean login(String login, String password) {
+        User user = new User(login, password);
         for (User usr: users) {
             if(usr.getLogin().equals(user.getLogin()) && usr.getPassvord().equals(user.getPassvord())){
                 return true;
@@ -24,8 +24,8 @@ public class UserServiceImpl  implements UserService{
     }
 
     @Override
-    public void register(RegDto dto) {
-        User usr = new User(dto.getLogin(), dto.getPassvord());
-        users.add(usr);
+    public boolean register(String login, String password) {
+        User usr = new User(login, password);
+        return users.add(usr);
     }
 }

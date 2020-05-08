@@ -5,8 +5,8 @@ import ru.itis.kpfu.springPro.dto.RegDto;
 
 public interface UserService {
 
-    boolean login(LoginDto dto);
+    boolean login(String login, String password);
 
-    void register(RegDto dto);
+    boolean register(String login, String password);
 
 }
